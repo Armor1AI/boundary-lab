@@ -19,6 +19,8 @@ Use an Apple silicon Mac with Homebrew, Xcode Command Line Tools, and Docker Des
 
 2. Sign in with the same email on the [Boundary join page](https://armor1-boundary-entitlements-688063010363.us-central1.run.app/join) and create your organization. Open the [admin console](https://armor1-boundary-entitlements-688063010363.us-central1.run.app/admin). In **Overview**, click **Create starter template**. Review **This folder's repository** (full access), **Enforcing**, and session summary sharing. Leave the repository list empty and press **Create access template**. That save assigns you to the starter.
 
+   If your console shows **local folders only** on Review, save the starter, open it under **Access templates**, then open **GitHub**. Enable **This folder's repository** and press **Save access template**. The repository list can stay empty.
+
 3. Set up one model credential on the Mac. For an API key, run `armor1-boundary set-key anthropic`, `armor1-boundary set-key openai`, or `armor1-boundary set-key gemini` and enter the key at the prompt. For a ChatGPT subscription, run `armor1-boundary import-codex ~/.codex/auth.json`.
 
 4. Fork the lab into **your personal account**. Start in a directory that has no existing `boundary-lab` checkout.
@@ -51,7 +53,7 @@ Use an Apple silicon Mac with Homebrew, Xcode Command Line Tools, and Docker Des
 
 ## Find the evidence
 
-Read the command responses in the agent session. On the Mac, run `armor1-boundary ui` to inspect the session locally. End the session so its summary uploads. In the admin console, open **Activity → Sessions**, select your session, and look under **Blocked** for each refusal and **Git activity** for the feature-branch push and PR. The staging token is a deliberately synthetic fixture. Your actual GitHub sign-in stays on the Mac.
+Read the command responses in the agent session. Earlier launchers show `package-blocked` followed by the package reason in words. On the Mac, run `armor1-boundary ui` to inspect the session locally. End the session so its summary uploads. In the admin console, open **Activity → Sessions**, select your session, and look under **What Boundary did** for the refusals by layer. **Git activity** shows the feature-branch push and PR. The staging token is a deliberately synthetic fixture. Your actual GitHub sign-in stays on the Mac.
 
 ## Run the shipment service on its own
 
